@@ -75,8 +75,8 @@ var server = http.createServer(function (req, res)
     } 
     else 
     {
-        `// console.log(req.url);
-        console.log("``````");
+        // console.log(req.url);
+        // console.log("``````");
         // var productId=url.parse(req.url,true).query.id;
         // console.log(productId);
     
