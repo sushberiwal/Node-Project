@@ -74,7 +74,8 @@ var server = http.createServer(function (req, res)
         res.write(ans);
     } 
     else 
-    {// console.log(req.url);
+    {
+        `// console.log(req.url);
         console.log("``````");
         // var productId=url.parse(req.url,true).query.id;
         // console.log(productId);
@@ -87,7 +88,7 @@ var server = http.createServer(function (req, res)
     }
     res.end();
 });
-
+var port = process.env.port || 3000;
 server.listen(3000, function () {
     console.log("server is at port 3000");
 })
