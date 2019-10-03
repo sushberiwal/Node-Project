@@ -30,7 +30,7 @@ function replace(id)
     cardTemp = cardTemp + "";
     cardTemp = cardTemp.replace(/#image#/g, output[id]["image"]);
     cardTemp = cardTemp.replace(/#quantity#/g, output[id]["quantity"]);
-    cardTemp = cardTemp.replace(/#Price#/g, output[id]["price"]);
+    cardTemp = cardTemp.replace(/#price#/g, output[id]["price"]);
     cardTemp = cardTemp.replace(/#Productname#/g, output[id]["productName"]);
     if(output[id]["organic"] === false)
     {
