@@ -89,6 +89,6 @@ var server = http.createServer(function (req, res)
     res.end();
 });
 var port = process.env.PORT || 3000;
-server.listen(3000, function () {
+server.listen(port, function () {
     console.log("server is at port 3000");
 })
