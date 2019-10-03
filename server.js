@@ -1,11 +1,10 @@
-var http = require("http");
-var fs = require("fs");
-var url = require("url");
+var http   = require("http");
+var fs     = require("fs");
+var url    = require("url");
 var server = http.createServer();
-var data = fs.readFileSync("data.json");
+var data   = fs.readFileSync("data.json");
 var output = JSON.parse(data);
-var data = (data+" ");
-// var oData=
+var data   = (data+" ");
 
 function product(id)
 {
@@ -18,28 +17,29 @@ function product(id)
     productPage = productPage.replace(/{#quantity#}/g, output[id]["quantity"]);
     productPage = productPage.replace(/{#Price#}/g, output[id]["price"]);
     productPage = productPage.replace(/{#Productname#}/g, output[id]["productName"]);
-    productPage = productPage.replace(/{#organic#/g, output[id]["organic"]);
+    if(output[id]["organic"] === false)
+    {
+        productPage = productPage.replace(/{%NOT_ORGANIC%}/g, "not-organic");
+    }
    return productPage;
 }
-
 function replace(id)
 {
-    console.log(id);
-    console.log(output[id]);
+    // console.log(id);
+    // console.log(output[id]);
     var cardTemp = fs.readFileSync("./cardTemp.html");
     cardTemp = cardTemp + "";
     cardTemp = cardTemp.replace(/#image#/g, output[id]["image"]);
     cardTemp = cardTemp.replace(/#quantity#/g, output[id]["quantity"]);
     cardTemp = cardTemp.replace(/#price#/g, output[id]["price"]);
     cardTemp = cardTemp.replace(/#Productname#/g, output[id]["productName"]);
+    cardTemp = cardTemp.replace(/{%ID%}/g, output[id]["id"]);
     if(output[id]["organic"] === false)
     {
         cardTemp = cardTemp.replace(/{%NOT_ORGANIC%}/g, "not-organic");
     }
-    
    return cardTemp;
 }
-
 function overviewRep(cards)
 {
     var overview = fs.readFileSync("./overview.html");
@@ -84,7 +84,7 @@ var server = http.createServer(function (req, res)
         // res.write(req.url);
         // res.write(""+));
     
-        // res.write("Error 404 Page Not found");
+        res.write("Error 404 Page Not found");
     }
     res.end();
 });

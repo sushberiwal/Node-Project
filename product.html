@@ -270,8 +270,8 @@
       <h1>🌽 Node Farm 🥦</h1>
 
       <figure class="product">
-        <div class="product__organic"><h5>{#organic#}</h5></div>
-        <a href="#" class="product__back">
+        <div class="product__organic {%NOT_ORGANIC%}"><h5>Organic</h5></div>
+        <a href="/overview" class="product__back">
           <span class="emoji-left">👈</span>Back
         </a>
         <div class="product__hero">
@@ -292,8 +292,7 @@
           <p><span class="emoji-left">📦</span> {#quantity#}</p>
           <p><span class="emoji-left">🏷</span> {#Price#}</p>
         </div>
-  
-        <a href="#" class="product__link">
+        <a href="" class="product__link">
           <span class="emoji-left">🛒</span>
           <span>Add to shopping card ({#Price#})</span>
         </a>
